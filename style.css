@@ -1,0 +1,21 @@
+body
+{
+background-size: cover;
+background-position: center;
+}
+.heading {
+    width: 100%;
+    font-size: 23px;
+    text-align: left;
+    
+}
+.heading button{
+    float: right;
+    font-size: 18px;
+}
+#start , #status{
+    font-size: 22px;
+}
+.heading h3{
+    display: inline;
+}
