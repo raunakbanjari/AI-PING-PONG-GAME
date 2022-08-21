@@ -13,9 +13,19 @@ background-position: center;
     float: right;
     font-size: 18px;
 }
-#start , #status{
+#start , #status , #restart{
     font-size: 22px;
 }
 .heading h3{
     display: inline;
+}
+.copy_right_footer{
+    line-height: 2;
+    width: 100%;
+    background-color: aqua;
+    color: red;
+    box-shadow: 1px 1px 38px white;
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
 }
