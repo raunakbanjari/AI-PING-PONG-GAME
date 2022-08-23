@@ -29,3 +29,22 @@ background-position: center;
     bottom: 0px;
     text-align: center;
 }
+canvas{
+    margin-top: 100px;
+    border-radius: 20px;
+    border: 5px 5px solid black;
+    box-shadow: 1px 1px 38px whitesmoke;
+}
+#video{
+    border: 5px 5px solid black;
+    border-radius: 20px;
+}
+.modal_body{
+    text-align: left;
+    color: maroon;
+}
+.modal_header{
+    text-align: center;
+    color: blue;
+    font-weight: bolder;
+}
