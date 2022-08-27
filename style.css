@@ -48,3 +48,9 @@ canvas{
     color: blue;
     font-weight: bolder;
 }
+video{
+    border: 5px solid yellow;
+    border-radius: 20px;
+    border-width: 5px;
+    
+}

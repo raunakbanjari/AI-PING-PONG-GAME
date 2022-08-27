@@ -9,6 +9,10 @@ var paddle2Y = 685,paddle2Height = 70;
 var score1 = 0, score2 =0;
 var paddle1Y;
 
+right_wrist_x = "";
+right_wrist_y = "";
+right_wrist_score = "";
+
 var  playerscore =0;
 var audio1;
 var pcscore =0;
@@ -21,12 +25,50 @@ var ball = {
     dy:3
 }
 
+game_status = "";
+
 function setup(){
   var canvas =  createCanvas(700,600);
+  canvas.parent("canvas");
+
+  video = createCapture(VIDEO);
+  video.size(330,330);
+  video.parent("video");
+  
+
+
+  posenet = ml5.poseNet(video, modalLoaded);
+  posenet.on('pose', gotPoses);
+  
+  
+  
+}
+function modalLoaded(){
+  console.log("modal is loaded");
+}
+function startGame(){
+  game_status = "start";
+  document.getElementById("status").innerHTML = "Game is Loaded"
+}
+
+function gotPoses(results){
+   if(results.length > 0){
+    console.log(results);
+    right_wrist_x = results[0].pose.rightWrist.x;
+    right_wrist_y = results[0].pose.rightWrist.y;
+    right_wrist_score = results[0].pose.rightWrist.score;
+   }
 }
 
 
+
 function draw(){
+  if(game_status == "start"){
+  image(video,0,0,330,330);
+
+  
+
+  
 
  background(0); 
 
@@ -37,6 +79,16 @@ function draw(){
  fill("black");
  stroke("black");
  rect(0,0,20,700);
+
+ if(right_wrist_score > 0.2){
+  fill("maroon");
+  stroke("navy");
+  circle(right_wrist_x , right_wrist_y, 60);
+
+  if(results[0].label == "rightWrist"){
+    console.log("right wrist detected!");
+  }
+ }
  
    //funtion paddleInCanvas call 
    paddleInCanvas();
@@ -65,6 +117,8 @@ function draw(){
    
    //function move call which in very important
     move();
+
+}
 }
 
 
